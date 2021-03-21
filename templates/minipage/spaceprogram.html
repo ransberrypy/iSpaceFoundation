@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title d-inline mr-5">Space for Rent</h4>
+          <a class="btn btn-success btn-sm bg" href=""  rel="tooltip"
+          title="Add a Space for rent">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-hover">
+            <thead class="text-warning">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for space in space_list%}
+              <tr>
+                <td>{{space.name}}</td>
+                <td>{{space.description}}</td>
+                <td><a href=""> {{space.price}}</a></td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Programs section -->
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <div class="card-header card-header-info">
+          <h4 class="card-title d-inline mr-5">Programs We Have!</h4>
+          <a class="btn btn-success btn-sm bg" href=""  rel="tooltip"
+          title="Add a program">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-hover">
+            <thead class="text-warning">
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Facilitator</th>
+                <th>Cohort</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for program in program_list%}
+              <tr>
+                <td>{{program.name}} </td>
+                <td>{{program.price}} </td>
+                <td>{{program.facilitator}}</td>
+                <td>{{program.cohort}}</td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+     <!-- End of birthday section -->
+  </div>
+  

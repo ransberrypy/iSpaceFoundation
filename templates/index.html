@@ -1,0 +1,84 @@
+{%extends 'base.html'%} {%block content%}
+<div class="content">
+  <!-- Tab content -->
+  <ul
+    class="nav nav-pills nav-pills-primary justify-content-center"
+    role="tablist"
+  >
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        data-toggle="tab"
+        href="#link1"
+        role="tablist"
+        aria-expanded="true"
+      >
+        GENERAL INFO
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-toggle="tab"
+        href="#link2"
+        role="tablist"
+        aria-expanded="false"
+      >
+        SPACES & PROGRAMS
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-toggle="tab"
+        href="#link3"
+        role="tablist"
+        aria-expanded="false"
+      >
+        EVENTS
+      </a>
+    </li>
+    <!-- style="border-top: 1px solid black;border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black;" -->
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        data-toggle="tab"
+        href="#link4"
+        role="tablist"
+        aria-expanded="false"
+      >
+        COMMUNITY
+      </a>
+    </li>
+    <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="tab"
+          href="#link5"
+          role="tablist"
+          aria-expanded="false"
+        >
+          BOOKINGS
+        </a>
+      </li>
+  </ul>
+  <div class="tab-content tab-space pt-3">
+    <div class="tab-pane active" id="link1" aria-expanded="true">
+      {%include 'minipage/geninfo.html'%}
+    </div>
+    <div class="tab-pane" id="link2" aria-expanded="false">
+      {%include 'minipage/spaceprogram.html'%}
+    </div>
+    <div class="tab-pane" id="link3" aria-expanded="false">
+      {%include 'minipage/events.html'%}
+    </div>
+    <div class="tab-pane" id="link4" aria-expanded="false">
+      {%include 'minipage/community.html'%}
+    </div>
+    <div class="tab-pane" id="link5" aria-expanded="false">
+        {%include 'minipage/bookings.html'%}
+      </div>
+  </div>
+  <!-- End of tab content -->
+</div>
+{%endblock%}

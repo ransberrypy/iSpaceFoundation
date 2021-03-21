@@ -1,0 +1,84 @@
+<div class="col-lg-12 col-md-12">
+    <div class="card">
+      <div class="card-header card-header-warning">
+          <div class="row">
+              <div class="col-sm-3 col-md-4 col-lg-4">
+                  <h4 class="card-title d-inline mr-5">All iSpace Community Members</h4>
+              </div>
+              <!-- <div class="col-sm-3 col-md-4 col-lg-4">
+                  <form class="navbar-form">
+                      <div class="input-group no-border">
+                        <input
+                          type="text"
+                          value=""
+                          class="form-control"
+                          placeholder="Search..."
+                        />
+                        <button type="submit" class="btn btn-primary btn-round btn-just-icon">
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                        </button>
+                      </div>
+                    </form>
+              </div> -->
+              
+          </div>
+      </div>
+      <div class="card-body table-responsive">
+        <table class="table table-hover">
+          <h3>Participant List</h3>
+          <a class="btn btn-success btn-sm bg" href=""  rel="tooltip"
+          title="Click to add a new participant">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a>
+          <thead class="text-warning">
+            <tr>
+              <th>Name</th>
+              <th>Event</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for participant in participant_list%}
+            <tr>
+              <td>{{participant.name}}</td>
+              <td>{{participant.event}}</td>
+              <td>{{participant.phone}}</td>
+              <td>{{participant.email}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </div>
+      <!-- Participant -->
+      <div class="card-body table-responsive">
+        <table class="table table-hover">
+          <h3>Space Users List</h3>
+          <a class="btn btn-success btn-sm bg" href=""  rel="tooltip"
+          title="Add Space User">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </a>
+          <thead class="text-warning">
+            <tr>
+              <th>Date Joined</th>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Emergency Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for spaceuser in spaceuser_list%}
+            <tr>
+              <td>{{spaceuser.joined_date}}</td>
+              <td>{{spaceuser.name}}</td>
+              <td>{{spaceuser.phone}}</td>
+              <td>{{spaceuser.emergency_contact}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
