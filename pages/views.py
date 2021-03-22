@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView,CreateView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 # models import
 from .models import Inquiry,Birthday
 from services.models import Space,Program
@@ -12,7 +12,7 @@ from .forms import InquiryForm,BirthdayForm
 
 
 # Create your views here.
-class HomeView(ListView):    
+class HomeView(LoginRequiredMixin,ListView):    
     template_name = 'index.html'
     queryset = Inquiry.objects.all()
 
@@ -29,10 +29,15 @@ class HomeView(ListView):
 
 
 # Create your Inquiry here
-class InquiryCreateView(CreateView):
+class InquiryCreateView(LoginRequiredMixin, CreateView):
     form_class = InquiryForm
     template_name = 'form.html'
     success_url = '/'
+
+    def form_valid(self,form):
+        instance = form.save(commit=False)
+        instance.team_member = self.request.user 
+        return super(InquiryCreateView, self).form_valid(form)
 
 
 # Create your Birthday here
@@ -40,3 +45,8 @@ class BirthdayCreateView(CreateView):
     form_class = BirthdayForm
     template_name = 'form.html'
     success_url = '/'
+
+    def form_valid(self,form):
+        instance = form.save(commit=False)
+        instance.team_member = self.request.user 
+        return super(BirthdayCreateView, self).form_valid(form)

@@ -18,12 +18,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth.views import LoginView
+
 from pages.views import HomeView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
+    path('login/', LoginView.as_view(), name='login'),
     path('pages/', include('pages.urls')),
     path('customers/', include('customers.urls')),
     path('events/', include('events.urls')),

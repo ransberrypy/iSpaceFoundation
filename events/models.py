@@ -1,12 +1,15 @@
+from django.conf import settings
 from django.db import models
 from services.models import Program
 
 from django.db.models.signals import pre_save
 from Maw.utils import unique_slug_generator
 
+User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 class Event(models.Model):
+    team_member = models.ForeignKey(User, on_delete=models.CASCADE)
     program = models.ForeignKey(Program, on_delete=models.CASCADE,blank=True)
     who = models.CharField(max_length=120, blank=True, default='Internal Event',help_text="Name of Organization")
     name = models.CharField(max_length=120, blank=True, help_text="Name of Event")

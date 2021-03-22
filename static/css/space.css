@@ -98,7 +98,7 @@ strong {
 
 a {
     text-decoration: none;
-    color: #5e72e4;
+    color: #000;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
@@ -1499,3 +1499,14 @@ p {
     }
 }
 
+
+.text-ispace {
+    color: #e81e6ba9 !important;
+}
+.bg{
+    background-color: #0b1526 !important;
+}
+
+.card.bg-dark, .card .card-header-dark .card-icon, .card .card-header-dark .card-text, .card .card-header-dark:not(.card-header-icon):not(.card-header-text), .card.card-rotate.bg-dark .back, .card.card-rotate.bg-dark .front {
+    background: linear-gradient(60deg,#000,#0f0b0c);
+}

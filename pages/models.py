@@ -1,9 +1,13 @@
+from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
 from Maw.utils import unique_slug_generator
 
+User = settings.AUTH_USER_MODEL
+
 # Create your models here.
 class Inquiry(models.Model):
+    team_member = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=129, blank=False)
     telephone = models.CharField(max_length=120, blank=False)
     slug = models.SlugField(blank=True, null=True)

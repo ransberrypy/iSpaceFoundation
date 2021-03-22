@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
 
@@ -5,9 +6,11 @@ from events.models import Event
 from bookings.models import Booking
 from Maw.utils import unique_slug_generator
 
+User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 class Spaceuser(models.Model):
+    # team_member = models.ForeignKey(User, on_delete=models.CASCADE)
     booking= models.ForeignKey(Booking, on_delete=models.CASCADE, blank=True)
     joined_date = models.DateField(auto_now_add=False)
     name = models.CharField(max_length=120, blank=True)
@@ -23,6 +26,7 @@ class Spaceuser(models.Model):
     # passport_pic = models.ImageField()
     # business_cert = models.ImageField()
     timestamp = models.DateField(auto_now_add=True)
+    is_member = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -31,6 +35,7 @@ class Spaceuser(models.Model):
 
 class Participant(models.Model):
     event = models.ForeignKey(Event,on_delete=models.CASCADE,blank=True)
+    # team_member = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120, blank=True)
     slug = models.SlugField(blank=True, null=True)
     phone = models.CharField(max_length=120, blank=True)
