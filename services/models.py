@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
+from django.urls import reverse
 from Maw.utils import unique_slug_generator
 
 
@@ -18,6 +19,9 @@ class Space(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('space-detail')
  
 
 class Program(models.Model):
@@ -35,6 +39,9 @@ class Program(models.Model):
 
     def __str__(self) :
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('program-detail')
     
 def model_pre_save_receiver(sender,instance,*args,**kwargs):
     if not instance.slug:

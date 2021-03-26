@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
+from django.urls import reverse
 
 from events.models import Event
 from bookings.models import Booking
@@ -31,6 +32,9 @@ class Spaceuser(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('spaceuser-detail')
+
 
 
 class Participant(models.Model):
@@ -51,7 +55,8 @@ class Participant(models.Model):
     def __str__(self):
         return self.name
 
-
+    def get_absolute_url(self):
+        return reverse('participant-detail')
 
 def model_pre_save_receiver(sender,instance,*args,**kwargs):
     if not instance.slug:

@@ -1,18 +1,20 @@
 from django.shortcuts import render
-from django.views.generic import ListView,CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 # models import
-from .models import Inquiry,Birthday
-from services.models import Space,Program
+from .models import Inquiry, Birthday
+from services.models import Space, Program
 from events.models import Event
-from customers.models import Participant,Spaceuser
+from customers.models import Participant, Spaceuser
 
 # Forms import
-from .forms import InquiryForm,BirthdayForm
-
+from .forms import InquiryForm, BirthdayForm
+from .models import Inquiry, Birthday
 
 # Create your views here.
-class HomeView(LoginRequiredMixin,ListView):    
+
+
+class HomeView(LoginRequiredMixin, ListView):
     template_name = 'index.html'
     queryset = Inquiry.objects.all()
 
@@ -34,10 +36,14 @@ class InquiryCreateView(LoginRequiredMixin, CreateView):
     template_name = 'form.html'
     success_url = '/'
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         instance = form.save(commit=False)
-        instance.team_member = self.request.user 
+        instance.team_member = self.request.user
         return super(InquiryCreateView, self).form_valid(form)
+
+class InquiryDetailView(DetailView):
+    queryset = Inquiry.objects.all()
+
 
 
 # Create your Birthday here
@@ -46,7 +52,12 @@ class BirthdayCreateView(CreateView):
     template_name = 'form.html'
     success_url = '/'
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         instance = form.save(commit=False)
-        instance.team_member = self.request.user 
+        instance.team_member = self.request.user
         return super(BirthdayCreateView, self).form_valid(form)
+
+
+class BirthdayDetailView(DetailView):
+    queryset = Birthday.objects.all()
+
