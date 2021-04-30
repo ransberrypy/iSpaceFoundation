@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Participant, Spaceuser
+from .models import Participant, Spaceuser,Client
 
 # Register your models here.
 class SpaceuserAdmin(admin.ModelAdmin):
@@ -14,3 +14,5 @@ class ParticipantAdmin(admin.ModelAdmin):
     list_per_page = 25
 
 admin.site.register(Participant, ParticipantAdmin)
+
+admin.site.register(Client)

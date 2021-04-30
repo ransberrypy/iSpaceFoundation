@@ -43,7 +43,7 @@ class InquiryCreateView(LoginRequiredMixin, CreateView):
 
 class InquiryDetailView(DetailView):
     queryset = Inquiry.objects.all()
-
+    template_name='inquiry/inquirydetail.html'
 
 
 # Create your Birthday here

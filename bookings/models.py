@@ -9,7 +9,7 @@ User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 class Booking(models.Model):
-    team_member = models.ForeignKey(User, on_delete=models.CASCADE)
+    # team_member = models.ForeignKey(User, on_delete=models.CASCADE)
     space = models.ForeignKey(Space, on_delete=models.CASCADE, blank=True)
     amount = models.IntegerField()
     internet_code = models.CharField(max_length=12, blank=True)

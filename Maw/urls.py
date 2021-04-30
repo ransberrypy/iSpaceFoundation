@@ -26,10 +26,12 @@ from pages.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
-    path('login/', LoginView.as_view(), name='login'),
-    path('pages/', include('pages.urls')),
+    path('carts/', include('carts.urls')),
     path('customers/', include('customers.urls')),
     path('events/', include('events.urls')),
+    path('pages/', include('pages.urls')),
     path('services/', include('services.urls')),
+    path('finances/', include('finances.urls')),
+    path('login/', LoginView.as_view(), name='login'),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -4,7 +4,7 @@ from services.models import Program
 from django.urls import reverse
 
 from django.db.models.signals import pre_save
-from Maw.utils import unique_slug_generator
+from Maw.rans import unique_slug_generator
 
 User = settings.AUTH_USER_MODEL
 

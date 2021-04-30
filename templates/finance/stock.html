@@ -1,0 +1,50 @@
+{%extends 'base.html'%} {%block content%}
+
+<div class="content">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-dark">
+              <div class="row">
+                  <div class="col-sm-3 col-md-4 col-lg-4">
+                      <h4 class="card-title d-inline mr-5">Inventory List</h4>
+                  </div>
+                  <div class="col-sm-3 col-md-4 col-lg-4">
+                      <a class="btn btn-success btn-sm " href=""  rel="tooltip"
+                      title="Add an Event that is happening at the space">
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                        </a>
+                  </div>
+              </div>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-ispace">
+                <tr>
+                    <!-- <th>Updated</th> -->
+                  <th>Name</th>
+                  <th>Quantity Bought</th>
+                  <th>Quantity Remaining</th>
+                  <th>Last Checked</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for stock in object_list%}
+                <tr>
+                <!-- <td>{{stock.date}}</td> -->
+                  <td>{{stock.name}}</td>
+                  <td>{{stock.quantity}}</td>
+                  <td>{{stock.quantity_remaining}}
+                      <progress value={{stock.quantity_remaining}} max="{{stock.quantity}}"> </progress>
+                  </td>
+                  <!-- <td>{{stock.updated_at}}</td> -->
+                  <td>{{stock.last_checked}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+</div>
+{%endblock%}

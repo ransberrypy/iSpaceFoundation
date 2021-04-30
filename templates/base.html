@@ -30,6 +30,12 @@
             </a></div>
           <div class="sidebar-wrapper">
             <ul class="nav">
+              <li class="nav-item">
+                <a class=" d-lg-block" href="/admin" >
+                  <span class="text-black">Admin</span>
+                </a>
+             
+              </li>
               <li class="nav-item active">
                 <a class=" d-lg-block" href="/" >
                   <!-- <i class="material-icons">content_paste</i> -->
@@ -50,12 +56,13 @@
                   <span class="text-black">Account Manager</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="accountdropmenu">
-                    <a class="dropdown-item" href="https://demos.creative-tim.com/material-dashboard-react/#/admin/dashboard">
+                    <a class="dropdown-item" href="">
                       Bank Info</a>
                     <a class="dropdown-item" href="">Projections</a>
                     <!-- <a class="dropdown-item" href="#">Generate Receipt</a>
                     <a class="dropdown-item" href="#">Generate Invoice</a> -->
                     <a class="dropdown-item" href="#">Petty Cash</a>
+                    <a class="dropdown-item" href="{%url 'stocklevel'%}">Inventory or Stock</a>
                     <a class="dropdown-item" href="">Transaction Sheet</a>
                 </div>
               </li>
@@ -123,12 +130,12 @@
                         <i class="ni ni-support-16"></i>
                         <span>Support</span>
                       </a>
-                      <div class="dropdown-divider"></div>
+                      <!-- <div class="dropdown-divider"></div>
                       <a href="{logout}" class="dropdown-item">
                         <i class="ni ni-user-run"></i>
                         <span>Logout</span>
                       </a>
-                    </div>
+                    </div> -->
                   </li>
                 </ul>
               </div>

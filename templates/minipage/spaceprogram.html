@@ -20,7 +20,12 @@
             <tbody>
               {%for space in space_list%}
               <tr>
-                <td>{{space.name}}</td>
+                <td>
+                  <a href="{{space.get_absolute_url}}">
+                    {{space.name}}
+                  </a>
+                </td>
+                
                 <td>{{space.description}}</td>
                 <td><a href=""> {{space.price}}</a></td>
               </tr>
@@ -53,7 +58,11 @@
             <tbody>
               {%for program in program_list%}
               <tr>
-                <td>{{program.name}} </td>
+                <td>
+                  <a href="{{program.get_absolute_url}}">
+                  {{program.name}} 
+                </a>
+              </td>
                 <td>{{program.price}} </td>
                 <td>{{program.facilitator}}</td>
                 <td>{{program.cohort}}</td>

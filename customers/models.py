@@ -5,7 +5,7 @@ from django.urls import reverse
 
 from events.models import Event
 from bookings.models import Booking
-from Maw.utils import unique_slug_generator
+from Maw.rans import unique_slug_generator
 
 User = settings.AUTH_USER_MODEL
 
@@ -57,6 +57,22 @@ class Participant(models.Model):
 
     def get_absolute_url(self):
         return reverse('participant-detail')
+
+
+class Funding(models.Model):
+    name = models.ForeignKey(Participant,on_delete=models.DO_NOTHING)
+    
+
+
+
+class Client(models.Model):
+    name = models.CharField(max_length=120, blank=True)
+    email = models.EmailField(unique=True,blank=True, max_length=255)
+    phone = models.CharField(max_length=20, blank=True)
+
+    def __str__(self):
+        return self.name
+
 
 def model_pre_save_receiver(sender,instance,*args,**kwargs):
     if not instance.slug:

@@ -18,3 +18,13 @@ def unique_slug_generator(instance, new_slug=None):
         new_slug = f'{slug}-{random_string_generator(size=4)}'
         return unique_slug_generator(instance, new_slug=new_slug)
     return slug
+
+
+def unique_code_generator(instance):
+    new_code_id = random_string_generator().upper()
+
+    Klass = instance.__class__
+    qs_exists = Klass.objects.filter(code=new_code_id).exists()
+    if qs_exists:
+        return unique_code_generator(instance)
+    return new_code_id

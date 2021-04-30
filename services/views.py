@@ -21,6 +21,7 @@ class SpaceCreateView(LoginRequiredMixin, CreateView):
 
 class SpaceDetailView(DetailView):
     queryset = Space.objects.all()
+    template_name='products/detail.html'
 
 
 # Create your Program here
@@ -37,3 +38,4 @@ class ProgramCreateView(LoginRequiredMixin, CreateView):
 
 class ProgramDetailView(DetailView):
     queryset = Program.objects.all()
+    template_name='program/detail.html'
